@@ -10,12 +10,12 @@ public class Part2 {
     }
 
     public static long getNumberPartialOverlap() throws IOException, URISyntaxException {
-        BiFunction<Utils.Range, Utils.Range, Boolean> matchFunction = (first, second)
+        BiFunction<Range, Range, Boolean> matchFunction = (first, second)
                 -> hasPartialOverlap(first, second) || hasPartialOverlap(second, first);
         return Utils.getNumberOfMatches(matchFunction);
     }
 
-    public static boolean hasPartialOverlap(Utils.Range testee, Utils.Range tested) {
+    public static boolean hasPartialOverlap(Range testee, Range tested) {
         return tested.from() <= testee.from() && testee.from() <= tested.to()
                 || tested.from() <= testee.to() && testee.to() <= tested.to();
     }

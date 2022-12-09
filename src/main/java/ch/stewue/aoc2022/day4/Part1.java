@@ -10,12 +10,12 @@ public class Part1 {
     }
 
     public static long getNumberFullOverlap() throws IOException, URISyntaxException {
-        BiFunction<Utils.Range, Utils.Range, Boolean> matchFunction = (first, second)
+        BiFunction<Range, Range, Boolean> matchFunction = (first, second)
                 -> hasFullOverlap(first, second) || hasFullOverlap(second, first);
         return Utils.getNumberOfMatches(matchFunction);
     }
 
-    public static boolean hasFullOverlap(Utils.Range testee, Utils.Range tested) {
+    public static boolean hasFullOverlap(Range testee, Range tested) {
         return tested.from() <= testee.from() && testee.to() <= tested.to();
     }
 }

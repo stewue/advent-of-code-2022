@@ -20,7 +20,7 @@ public class Utils {
     public static long getNumberOfMatches(BiFunction<Range, Range, Boolean> matchFunction) throws IOException, URISyntaxException {
         return Utils.getPairs()
                 .stream()
-                .filter(i -> matchFunction.apply(i.first, i.second))
+                .filter(i -> matchFunction.apply(i.first(), i.second()))
                 .count();
     }
 
@@ -29,11 +29,5 @@ public class Utils {
         return new Range(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
     }
 
-    public record Pair(Range first, Range second) {
 
-    }
-
-    public record Range(int from, int to) {
-
-    }
 }
